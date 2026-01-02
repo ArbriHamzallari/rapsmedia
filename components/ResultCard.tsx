@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { type ResultCase } from "@/lib/mock/results";
 
 function formatNumber(num: number): string {
@@ -44,6 +45,30 @@ export default function ResultCard({ result }: { result: ResultCase }) {
 
   return (
     <div className="bg-[rgba(197,208,255,0.4)] backdrop-blur-sm p-6 rounded-lg border border-[rgba(174,187,255,0.4)] shadow-[0_2px_8px_rgba(174,187,255,0.2)] hover:shadow-[0_4px_16px_rgba(174,187,255,0.3)] transition-all duration-300">
+      {/* Screenshot Proof Image */}
+      {result.screenshot ? (
+        <div className="mb-4 rounded-lg border border-[rgba(174,187,255,0.4)] overflow-hidden bg-[rgba(255,255,255,0.6)] relative">
+          <div className="relative aspect-video w-full">
+            <Image
+              src={result.screenshot}
+              alt={`Proof screenshot for ${result.artistName}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+            <div className="absolute top-2 right-2 bg-[#0B0B0F]/80 backdrop-blur-sm text-white px-2 py-1 rounded text-xs font-semibold">
+              Screenshot Proof
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="mb-4 rounded-lg border border-[rgba(174,187,255,0.3)] overflow-hidden bg-[rgba(255,255,255,0.5)]">
+          <div className="aspect-video relative bg-gray-100 flex items-center justify-center">
+            <p className="text-[#4A4A5C] text-sm">No screenshot available</p>
+          </div>
+        </div>
+      )}
+
       {/* Artist Info */}
       <div className="mb-4">
         <div className="flex items-center justify-between mb-2">
@@ -77,7 +102,7 @@ export default function ResultCard({ result }: { result: ResultCase }) {
       </div>
 
       {/* Additional Metrics */}
-      <div className="grid grid-cols-3 gap-2 mb-4 text-xs">
+      <div className="grid grid-cols-3 gap-2 text-xs">
         <div>
           <p className="text-[#4A4A5C]">Views</p>
           <p className="font-semibold text-[#0B0B0F]">
@@ -97,17 +122,6 @@ export default function ResultCard({ result }: { result: ResultCase }) {
           </p>
         </div>
       </div>
-
-      {/* Screenshot Proof (Optional) */}
-      {result.screenshot && (
-        <div className="mt-4 rounded border border-[rgba(174,187,255,0.3)] overflow-hidden bg-[rgba(255,255,255,0.5)]">
-          <div className="aspect-video relative bg-gray-100">
-            <div className="absolute inset-0 flex items-center justify-center text-[#4A4A5C] text-sm">
-              Screenshot proof
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

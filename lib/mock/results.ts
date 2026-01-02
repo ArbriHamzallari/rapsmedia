@@ -46,7 +46,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+564% streams",
     date: "2024-11-15",
-    screenshot: "/demo/result-1.jpg",
+    screenshot: "/demo/results/proof_01_novak_rap.png",
   },
   {
     id: "2",
@@ -69,7 +69,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+250% followers",
     date: "2024-11-22",
-    screenshot: "/demo/result-2.jpg",
+    screenshot: "/demo/results/proof_02_lirix_music.png",
   },
   {
     id: "3",
@@ -92,7 +92,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+597% reach",
     date: "2024-12-01",
-    screenshot: "/demo/result-3.jpg",
+    screenshot: "/demo/results/proof_03_ardiblaze.png",
   },
   {
     id: "4",
@@ -115,7 +115,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+671% streams",
     date: "2024-11-28",
-    screenshot: "/demo/result-4.jpg",
+    screenshot: "/demo/results/proof_04_vala_wav.png",
   },
   {
     id: "5",
@@ -138,7 +138,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+271% followers",
     date: "2024-12-05",
-    screenshot: "/demo/result-5.jpg",
+    screenshot: "/demo/results/proof_05_kronikbars.png",
   },
   {
     id: "6",
@@ -161,7 +161,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+553% reach",
     date: "2024-11-19",
-    screenshot: "/demo/result-6.jpg",
+    screenshot: "/demo/results/proof_06_mirasounds.png",
   },
   {
     id: "7",
@@ -184,7 +184,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+643% streams",
     date: "2024-12-08",
-    screenshot: "/demo/result-7.jpg",
+    screenshot: "/demo/results/proof_07_donidrift.png",
   },
   {
     id: "8",
@@ -207,7 +207,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+271% followers",
     date: "2024-11-25",
-    screenshot: "/demo/result-8.jpg",
+    screenshot: "/demo/results/proof_08_rin_flow.png",
   },
   {
     id: "9",
@@ -230,7 +230,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+573% reach",
     date: "2024-12-12",
-    screenshot: "/demo/result-9.jpg",
+    screenshot: "/demo/results/proof_09_kleo_verse.png",
   },
   {
     id: "10",
@@ -253,7 +253,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+659% streams",
     date: "2024-11-30",
-    screenshot: "/demo/result-10.jpg",
+    screenshot: "/demo/results/proof_10_zani808.png",
   },
   {
     id: "11",
@@ -276,7 +276,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+241% followers",
     date: "2024-12-03",
-    screenshot: "/demo/result-11.jpg",
+    screenshot: "/demo/results/proof_11_sirastage.png",
   },
   {
     id: "12",
@@ -299,7 +299,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+550% reach",
     date: "2024-12-10",
-    screenshot: "/demo/result-12.jpg",
+    screenshot: "/demo/results/proof_12_besobeats.png",
   },
   {
     id: "13",
@@ -322,7 +322,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+620% streams",
     date: "2024-12-07",
-    screenshot: "/demo/result-13.jpg",
+    screenshot: "/demo/results/proof_01_novak_rap.png",
   },
   {
     id: "14",
@@ -345,7 +345,7 @@ export const results: ResultCase[] = [
     },
     deltaLabel: "+260% followers",
     date: "2024-11-27",
-    screenshot: "/demo/result-14.jpg",
+    screenshot: "/demo/results/proof_02_lirix_music.png",
   },
 ];
 

@@ -272,7 +272,7 @@ function SubmitForm() {
             >
               {promotionPackages.map((pkg) => (
                 <option key={pkg.id} value={pkg.id}>
-                  {pkg.name} - ${pkg.price}
+                  {pkg.name} - €{pkg.price}
                 </option>
               ))}
             </select>

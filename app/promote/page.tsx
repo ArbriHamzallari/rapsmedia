@@ -49,7 +49,7 @@ export default function PromotePage() {
               Promotion Packages
             </h2>
             <p className="text-lg text-[#4A4A5C] max-w-2xl mx-auto">
-              Choose the package that aligns with your goals. All packages include a results snapshot with key metrics.
+              Choose the package that aligns with your goals. Growth and Pro packages include a results snapshot with key metrics.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -72,7 +72,7 @@ export default function PromotePage() {
                 </h3>
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-[#0B0B0F]">
-                    ${pkg.price}
+                    €{pkg.price}
                   </span>
                   <span className="text-[#4A4A5C]">/promotion</span>
                 </div>
@@ -84,10 +84,6 @@ export default function PromotePage() {
                     </li>
                   ))}
                 </ul>
-                <div className="text-sm text-[#4A4A5C] mb-6 pt-4 border-t border-[rgba(174,187,255,0.3)]">
-                  <p className="font-medium">What you get after promo:</p>
-                  <p>A results snapshot with key metrics.</p>
-                </div>
                 <Link
                   href={`/submit?package=${pkg.id}`}
                   className={`block w-full text-center py-3 rounded-lg font-semibold transition-colors ${
@@ -123,7 +119,7 @@ export default function PromotePage() {
                   {addon.name}
                 </h3>
                 <div className="text-2xl font-bold text-[#0B0B0F] mb-3">
-                  ${addon.price}
+                  €{addon.price}
                 </div>
                 <p className="text-[#4A4A5C] text-sm">{addon.description}</p>
               </div>
