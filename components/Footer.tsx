@@ -12,8 +12,11 @@ const categories = [
   { name: "Sports", slug: "sports" },
 ];
 
+const instagramUrl =
+  process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/rapsmedia/";
+
 const socialLinks = [
-  { name: "Instagram", url: "https://instagram.com/rapsmedia", icon: "📷" },
+  { name: "Instagram", url: instagramUrl, icon: "📷" },
   { name: "TikTok", url: "https://tiktok.com/@rapsmedia", icon: "🎵" },
   { name: "X/Twitter", url: "https://x.com/rapsmedia", icon: "𝕏" },
   { name: "YouTube", url: "https://youtube.com/@rapsmedia", icon: "▶️" },
@@ -121,16 +124,30 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold mb-4">Business Inquiries</h3>
-            <p className="text-gray-400 text-sm mb-4">
-              For partnerships and promotions:
-            </p>
-            <a
-              href="mailto:promo@rapsmedia.tv"
-              className="text-[#AEBBFF] hover:text-[#8FA0FF] transition-colors text-sm"
-            >
-              promo@rapsmedia.tv
-            </a>
+            <h3 className="font-semibold mb-4">Contact</h3>
+            <div className="space-y-3 text-sm">
+              <div>
+                <p className="text-gray-400 mb-1">Email:</p>
+                <a
+                  href="mailto:rapsmedia.tv@gmail.com"
+                  className="text-[#AEBBFF] hover:text-[#8FA0FF] transition-colors"
+                >
+                  rapsmedia.tv@gmail.com
+                </a>
+              </div>
+              <div>
+                <p className="text-gray-400 mb-1">Instagram:</p>
+                <a
+                  href={instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#AEBBFF] hover:text-[#8FA0FF] transition-colors flex items-center gap-2"
+                >
+                  <span>📷</span>
+                  <span>@rapsmedia</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -12,24 +12,71 @@ function SubmitForm() {
   const packageParam = searchParams.get("package");
   const [formData, setFormData] = useState({
     artistName: "",
-    instagram: "",
+    instagramHandle: "",
     email: "",
     songLink: "",
     goal: "",
-    package: packageParam || "starter",
+    selectedPackage: packageParam || "starter",
+    notes: "",
+    companyWebsite: "", // Honeypot field
   });
+  const [coverFile, setCoverFile] = useState<File | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setSubmitted(true);
+
+    try {
+      const submissionData: any = {
+        artistName: formData.artistName.trim(),
+        instagramHandle: formData.instagramHandle.trim(),
+        email: formData.email.trim(),
+        songLink: formData.songLink.trim(),
+        selectedPackage: formData.selectedPackage,
+        companyWebsite: formData.companyWebsite, // Honeypot
+      };
+
+      // Add optional fields if provided
+      if (formData.goal) {
+        submissionData.goal = formData.goal;
+      }
+      if (formData.notes) {
+        submissionData.notes = formData.notes.trim();
+      }
+      if (coverFile) {
+        submissionData.coverFileName = coverFile.name;
+        submissionData.coverFileSize = coverFile.size;
+      }
+
+      const response = await fetch("/api/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to submit. Please try again.");
+      }
+
+      // Success
+      setSubmitted(true);
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "An error occurred. Please try again later."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -39,6 +86,12 @@ function SubmitForm() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setCoverFile(e.target.files[0]);
+    }
   };
 
   if (submitted) {
@@ -103,17 +156,17 @@ function SubmitForm() {
 
           <div>
             <label
-              htmlFor="instagram"
+              htmlFor="instagramHandle"
               className="block text-sm font-semibold text-[#0B0B0F] mb-2"
             >
               Instagram Handle *
             </label>
             <input
               type="text"
-              id="instagram"
-              name="instagram"
+              id="instagramHandle"
+              name="instagramHandle"
               required
-              value={formData.instagram}
+              value={formData.instagramHandle}
               onChange={handleChange}
               className="w-full px-4 py-3 border-2 border-[rgba(174,187,255,0.4)] bg-white/80 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEBBFF] focus:border-[#AEBBFF] text-[#0B0B0F]"
               placeholder="@yourhandle"
@@ -170,8 +223,14 @@ function SubmitForm() {
               id="coverArt"
               name="coverArt"
               accept="image/*"
+              onChange={handleFileChange}
               className="w-full px-4 py-3 border-2 border-[rgba(174,187,255,0.4)] bg-white/80 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEBBFF] focus:border-[#AEBBFF] text-[#0B0B0F]"
             />
+            {coverFile && (
+              <p className="mt-2 text-sm text-gray-600">
+                Selected: {coverFile.name} ({(coverFile.size / 1024).toFixed(2)} KB)
+              </p>
+            )}
           </div>
 
           <div>
@@ -179,17 +238,16 @@ function SubmitForm() {
               htmlFor="goal"
               className="block text-sm font-semibold text-[#0B0B0F] mb-2"
             >
-              What's your goal? *
+              What's your goal? (Optional)
             </label>
             <select
               id="goal"
               name="goal"
-              required
               value={formData.goal}
               onChange={handleChange}
               className="w-full px-4 py-3 border-2 border-[rgba(174,187,255,0.4)] bg-white/80 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEBBFF] focus:border-[#AEBBFF] text-[#0B0B0F]"
             >
-              <option value="">Select a goal</option>
+              <option value="">Select a goal (optional)</option>
               <option value="streams">Increase Streams</option>
               <option value="followers">Grow Followers</option>
               <option value="collab">Brand Collaboration</option>
@@ -199,16 +257,16 @@ function SubmitForm() {
 
           <div>
             <label
-              htmlFor="package"
+              htmlFor="selectedPackage"
               className="block text-sm font-semibold text-[#0B0B0F] mb-2"
             >
               Choose Package *
             </label>
             <select
-              id="package"
-              name="package"
+              id="selectedPackage"
+              name="selectedPackage"
               required
-              value={formData.package}
+              value={formData.selectedPackage}
               onChange={handleChange}
               className="w-full px-4 py-3 border-2 border-[rgba(174,187,255,0.4)] bg-white/80 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEBBFF] focus:border-[#AEBBFF] text-[#0B0B0F]"
             >
@@ -219,6 +277,44 @@ function SubmitForm() {
               ))}
             </select>
           </div>
+
+          <div>
+            <label
+              htmlFor="notes"
+              className="block text-sm font-semibold text-[#0B0B0F] mb-2"
+            >
+              Additional Notes (Optional)
+            </label>
+            <textarea
+              id="notes"
+              name="notes"
+              rows={4}
+              value={formData.notes}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border-2 border-[rgba(174,187,255,0.4)] bg-white/80 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#AEBBFF] focus:border-[#AEBBFF] text-[#0B0B0F] resize-none"
+              placeholder="Any additional information you'd like to share..."
+            />
+          </div>
+
+          {/* Honeypot field - hidden from users */}
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor="companyWebsite">Company Website</label>
+            <input
+              type="text"
+              id="companyWebsite"
+              name="companyWebsite"
+              tabIndex={-1}
+              autoComplete="off"
+              value={formData.companyWebsite}
+              onChange={handleChange}
+            />
+          </div>
+
+          {error && (
+            <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4">
+              <p className="text-red-800 text-sm font-medium">{error}</p>
+            </div>
+          )}
 
           <button
             type="submit"
