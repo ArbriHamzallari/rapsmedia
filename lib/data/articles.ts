@@ -3,6 +3,50 @@ import { getPlaceholderImage } from "../utils/images";
 
 export const articles: Article[] = [
   {
+    slug: "h2k-bleeda-nobody-visualizer",
+    title: "New Music Alert: H2k Bleeda x Niy – \"Nobody\" (Visualizer)",
+    excerpt: "RapsMedia just received a heat-packed submission from rising hip-hop artist H2k Bleeda, bringing gritty energy and raw lyrical vibes with his latest visual release \"Nobody.\"",
+    category: "music",
+    coverImage: getPlaceholderImage(800, 600, "h2k-bleeda-nobody"),
+    author: "RapsMedia Editorial",
+    date: "2025-01-20",
+    readTime: 4,
+    tags: ["new music", "hip-hop", "visualizer", "rising artist", "H2k Bleeda"],
+    featured: true,
+    trending: false,
+    views: 0,
+    contentSections: [
+      { type: "heading", content: "New Music Alert" },
+      { 
+        type: "paragraph", 
+        content: "RapsMedia just received a heat-packed submission from rising hip-hop artist H2k Bleeda, bringing gritty energy and raw lyrical vibes with his latest visual release \"Nobody.\"" 
+      },
+      { 
+        type: "paragraph", 
+        content: "Watch the official visualizer: https://youtu.be/hh7qVQ1XNgM" 
+      },
+      { type: "heading", content: "About H2k Bleeda" },
+      { 
+        type: "paragraph", 
+        content: "H2k Bleeda has been steadily building his catalog in 2025 — including the Bleeda Season project, a 9-track offering that showcases his unfiltered style and distinct flow." 
+      },
+      { type: "heading", content: "The Release" },
+      { 
+        type: "paragraph", 
+        content: "With \"Nobody\", H2k continues to cement his presence in the underground rap game, delivering a visual experience that captures his unapologetic attitude and connection with the streets. The track blends hard-hitting bars with striking visuals, making it a perfect addition for fans of authentic hip-hop culture." 
+      },
+      { 
+        type: "paragraph", 
+        content: "This submission is part of H2k's push to grow his following and connect with listeners around the world. Whether you're hearing him for the first time or already rocking with his catalog, Nobody is a must-watch release that proves he's focused and ready to make moves." 
+      },
+      { type: "heading", content: "Follow H2k Bleeda" },
+      { 
+        type: "paragraph", 
+        content: "👉 Watch the official visualizer above, follow @H2kbleeda on Instagram, and stay tuned — this is one artist on the rise you'll want on your radar." 
+      },
+    ],
+  },
+  {
     slug: "next-wave-hip-hop-2025",
     title: "The Next Wave: 10 Hip-Hop Artists Breaking Through in 2025",
     excerpt: "From underground to mainstream, these artists are reshaping the sound of hip-hop with innovative beats and authentic storytelling.",
