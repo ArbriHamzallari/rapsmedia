@@ -3,6 +3,41 @@ import { getPlaceholderImage } from "../utils/images";
 
 export const articles: Article[] = [
   {
+    slug: "lmrn-jonjon-shine-on",
+    title: "New Submission: Lmrn JonJon Drops \"Shine On\"",
+    excerpt: "RapsMedia is excited to feature Lmrn JonJon, a rising talent bringing fresh vibes to the hip-hop scene with his new track \"Shine On.\"",
+    category: "music",
+    coverImage: "/articles/article-2.jpg",
+    author: "RapsMedia Editorial",
+    date: "2025-01-04",
+    readTime: 3,
+    tags: ["new music", "hip-hop", "rising artist", "Lmrn JonJon", "streams"],
+    featured: true,
+    trending: true,
+    views: 0,
+    contentSections: [
+      { type: "heading", content: "New Submission" },
+      { 
+        type: "paragraph", 
+        content: "RapsMedia is excited to feature Lmrn JonJon, a rising talent bringing fresh vibes to the hip-hop scene with his new track \"Shine On.\" This song marks an energetic and soulful entry for Lmrn, combining catchy melodies with reflective lyrics that speak to anyone chasing their dreams." 
+      },
+      { 
+        type: "paragraph", 
+        content: "Listen Here: https://youtu.be/P1S2dM9ppPQ?feature=shared" 
+      },
+      { type: "heading", content: "About the Release" },
+      { 
+        type: "paragraph", 
+        content: "The track is accompanied by a visually striking cover art, setting the tone for the vibe Lmrn JonJon is cultivating in 2026. With this submission, Lmrn is focused on reaching more listeners and growing his streams, and this is your chance to catch the wave early." 
+      },
+      { type: "heading", content: "Follow Lmrn JonJon" },
+      { 
+        type: "paragraph", 
+        content: "🎧 Hit play above and follow @Lmrn.jonjon to stay updated on his latest releases. Shine On is a track you don't want to miss if you're keeping an eye on emerging hip-hop talent." 
+      },
+    ],
+  },
+  {
     slug: "h2k-bleeda-nobody-visualizer",
     title: "New Music Alert: H2k Bleeda x Niy – \"Nobody\" (Visualizer)",
     excerpt: "RapsMedia just received a heat-packed submission from rising hip-hop artist H2k Bleeda, bringing gritty energy and raw lyrical vibes with his latest visual release \"Nobody.\"",
