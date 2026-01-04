@@ -7,7 +7,7 @@ export const articles: Article[] = [
     title: "New Music Alert: H2k Bleeda x Niy – \"Nobody\" (Visualizer)",
     excerpt: "RapsMedia just received a heat-packed submission from rising hip-hop artist H2k Bleeda, bringing gritty energy and raw lyrical vibes with his latest visual release \"Nobody.\"",
     category: "music",
-    coverImage: "/articles/h2k-bleeda-nobody.jpg",
+    coverImage: "\articles\article-1.jpg",
     author: "RapsMedia Editorial",
     date: "2025-01-04",
     readTime: 4,
